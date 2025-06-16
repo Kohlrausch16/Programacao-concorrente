@@ -5,17 +5,27 @@ import java.util.Random;
 public class FileInteractions {
 
     Random random = new Random();
-    String filePath = "C:/Users/elisa/OneDrive/Área de Trabalho/programacao-concorrente/src/src/bankFile.txt";
 
-    public void deposit(char thread) throws IOException, FileNotFoundException {
+    String filePath = "bankFile.txt";
+
+    public void deposit(char thread) throws IOException{
+
+        String content = "Test";
+
+        BufferedReader buffRead = new BufferedReader(new FileReader(filePath));
+        BufferedWriter buffWriter = new BufferedWriter(new FileWriter(filePath));
+
+        buffWriter.write("Hello Java 2!");
+        buffWriter.close();
+        /*
         System.out.print("Valor depositado: " + random.nextInt(0,100));
 
-        BufferedWriter buffWrite = new BufferedWriter(new FileWriter(filePath));
+        FileWriter buffWrite = new FileWriter(filePath);
         BufferedReader buffRead = new BufferedReader(new FileReader(filePath));
 
-        lastValue = 
-        buffWrite.append("Thread " + thread + " - Depósito às:" + LocalDateTime.now());
+        buffWrite.write("Thread " + thread + " - Depósito às:" + LocalDateTime.now());
         System.out.println(" - Deposito às: " + LocalDateTime.now());
+        */
     }
 
     public void readAmount(){
